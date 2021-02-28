@@ -13,7 +13,7 @@
 void PublishingDemoEntityOne() {
     // This demo function is provided for mimiching typical "sensor" in a standard MQTT environment
     // we are sending out MSGToBeSent messages to broker
-    Publisher publisher("localhost",1883,30);
+    Publisher publisher("broker.hivemq.com",1883,30);
     int MSGToBeSent = 10;
     // The following loop is required in order to avoid a static wait, after broker connection the first message can be sent only 1sec later.
     while(! publisher.GetConnectionStatus() ){
@@ -25,7 +25,7 @@ void PublishingDemoEntityOne() {
         std::vector<uint8_t> tmpVector(message.c_str(), message.c_str() + message.size() + 1);
         void *myPTR = static_cast<void *>(tmpVector.data());
         int size = tmpVector.size();
-        publisher.Publish(myPTR, size,"example",0,false);
+        publisher.Publish(myPTR, size,"exampleDAG",0,false);
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
@@ -37,7 +37,7 @@ void PublishingDemoEntityTwo() {
     // This demo function is provided for mimiching typical "sensor" in a standard MQTT environment
     // We are sending MSGToBeSent messages to the broker
 
-    Publisher publisher("localhost",1883,30);
+    Publisher publisher("broker.hivemq.com",1883,30);
     int MSGToBeSent = 10;
     // The following loop is required in order to avoid a static wait, after broker connection the first message can be sent only 1sec later.
     while(! publisher.GetConnectionStatus() ){
@@ -49,7 +49,7 @@ void PublishingDemoEntityTwo() {
         std::vector<uint8_t> tmpVector(message.c_str(), message.c_str() + message.size() + 1);
         void *myPTR = static_cast<void *>(tmpVector.data());
         int size = tmpVector.size();
-        publisher.Publish(myPTR, size,"example",0,false);
+        publisher.Publish(myPTR, size,"exampleDAG",0,false);
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
@@ -61,11 +61,11 @@ void PublishingDemoEntityTwo() {
 
 int main(int argc, char* argv[]){
 
-    std::string address{"localhost"};
+    std::string address{"broker.hivemq.com"};
     int port{1883};
     int timeout{60};
     int QOS{0};
-    std::string topic{"example"};
+    std::string topic{"exampleDAG"};
     bool logging{false};
 
     // The only user input supported are :
@@ -117,7 +117,7 @@ int main(int argc, char* argv[]){
         // If we are not providing the "-l filename" option we are currently logging to video 
         // if "-l filename" has been provided we are also storing the queue element within the provided filename
         // FIXME: in order to properly log data also a timestamp will be required. Not provided here since it is out of scope
-        
+
         if (! msgQueue->IsEmpty()){
             std::string element = msgQueue->GetElement();
             std::cout << element << std::endl;
