@@ -32,3 +32,25 @@ As an example of proper queue elements handling a 'while(true)' has been provide
 * add file logging if the program has been invoked with "-l filename" option
 
 ![Structure](/SampleMQTT.gif)
+
+_**Installation instructions**_
+
+* mkdir build
+* cd build
+* cmake ..
+* make
+
+_**Run instructions**_
+For running the program without logging to file: 
+> ./SampleMQTT
+
+Enabling loggin feature:
+> ./SampleMQTT -l logfile.log
+
+_**UDACITY Rubric**_
+* README (All Rubric Points REQUIRED) -> Properly assessed
+* Compiling and Testing (All Rubric Points REQUIRED) -> Properly assessed
+* Loops, Functions, I/O -> SampleMQTT.cpp 
+* Object Oriented Programming -> Basically all over the project, templates used in SimpleQueue.h
+* Memory Management -> All over the project
+* Concurrency -> Implemented in SampleMQTT.cpp but also used in SimpleQueue.h
