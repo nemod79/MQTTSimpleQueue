@@ -29,7 +29,7 @@ void PublishingDemoEntityOne() {
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
-    std::cout << "E1 MSG Sent # " << publisher.GetMessageCNT() << std::endl;
+    std::cout << "E1 MSG Sent # " << publisher.GetMessageCNT() << " messages to the broker" <<  std::endl;
     std::this_thread::sleep_for(std::chrono::seconds(1));
 }
 
@@ -53,7 +53,7 @@ void PublishingDemoEntityTwo() {
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
-    std::cout << "E2 MSG Sent # " << publisher.GetMessageCNT() << std::endl;
+    std::cout << "E2 MSG Sent # " << publisher.GetMessageCNT() << " messages to the broker" << std::endl;
     std::this_thread::sleep_for(std::chrono::seconds(1));
 }
 
@@ -112,7 +112,7 @@ int main(int argc, char* argv[]){
     // Dequeueing here stored messages
     while(true) {
         // This delay is required for provide queue population and demonstrate that we accessing real queued messages
-        std::this_thread::sleep_for(std::chrono::seconds(1));
+        std::this_thread::sleep_for(std::chrono::seconds(2));
 
         // If we are not providing the "-l filename" option we are currently logging to video 
         // if "-l filename" has been provided we are also storing the queue element within the provided filename
@@ -120,7 +120,7 @@ int main(int argc, char* argv[]){
 
         if (! msgQueue->IsEmpty()){
             std::string element = msgQueue->GetElement();
-            std::cout << element << std::endl;
+            std::cout << "Queued --> " << element << std::endl;
             std::cout << "remaining items: " << std::to_string(msgQueue->GetQueueSize()) << std::endl;
 
             if (logging){
