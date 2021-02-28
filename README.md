@@ -21,3 +21,12 @@ for proper handling the queue abstraction used for providing to the user a simpl
 data, received by MosquittoPublisher.
 
 _**SampleMQTT.cpp**_
+In order to demonstrate the functionalities provided a SampleMQTT program has been provided.
+It implements the following feature:
+* Two publisher are instantiated and ran through separated threads
+* One subscriber is instantiated and ran within a separated thread
+* One queue is created within the main program in order to grant concurrent access to the subscriber and to the main loop
+
+As an example of proper queue elements handling a 'while(true)' has been provided. Withing such loop there are two options:
+* popping elements from the queue and provide video output that demonstrates the dequeueing
+* add file logging if the program has been invoked with "-l filename" option
