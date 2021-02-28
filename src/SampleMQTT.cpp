@@ -120,7 +120,7 @@ int main(int argc, char* argv[]){
 
         if (! msgQueue->IsEmpty()){
             std::string element = msgQueue->GetElement();
-            std::cout << "Queued --> " << element << std::endl;
+            std::cout << "Dequeued --> " << element << std::endl;
             std::cout << "remaining items: " << std::to_string(msgQueue->GetQueueSize()) << std::endl;
 
             if (logging){
