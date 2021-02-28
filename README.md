@@ -34,7 +34,17 @@ As an example of proper queue elements handling a 'while(true)' has been provide
 ![Structure](/SampleMQTT.gif)
 
 _**Installation instructions**_
+This project inherit functionalities from libmosquitto, in order to properly compiling and run this code you must install firstly "libmosquitto-dev"
 
+apt-get install libmosquitto-dev
+
+then clone this repo within your workspace 
+
+git clone https://github.com/nemod79/MQTTSimpleQueue.git
+
+and the install as usual
+
+* cd MQTTSimpleQueue
 * mkdir build
 * cd build
 * cmake ..
@@ -46,6 +56,8 @@ For running the program without logging to file:
 
 Enabling loggin feature:
 > ./SampleMQTT -l logfile.log
+
+_The program doesn't exit after execution, so must be terminated using CTRL+C. This is due to the threaded interface of the Subscriber, it will be forevere sitting there waiting for new messages to put on queue._
 
 _**UDACITY Rubric**_
 * README (All Rubric Points REQUIRED) -> Properly assessed
