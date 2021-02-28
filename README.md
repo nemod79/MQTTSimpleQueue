@@ -7,20 +7,20 @@ Hereunder you can see the overall strcture and the general idea of the project.
 
 In order to explain how the provided classes actually works a SampleMQTT.cpp has been provided.
 
-_**MosquittoPubilsher.h/.cpp**_
+_**MosquittoPubilsher.h/.cpp**_<br/>
 This file actually contains all the required classes and methods for connecting to an MQTT Broker and sending to it messages
 
-_**MosquittoSubscriber.h/.cpp**_
+_**MosquittoSubscriber.h/.cpp**_<br/>
 This file actually contains all the required classes and methods for connecting to an MQTT Broker and subscribind specific TOPIC.
 You can consider "TOPIC" like a common subject, shared by several MosquittoPublisher, in order to let the MQTT Broker to "group" messages togheter.
 In real case valid TOPICS can be : "sensors/", "temperature/", "acceleration/", "kitchen/", "bedroom/", etc.
 
-_**SimpleQueue.h**_
+_**SimpleQueue.h**_<br/>
 Only h file is provided here since we are using 'inline' for proper template implementation. The aim of this file is to provided classes and methods
 for proper handling the queue abstraction used for providing to the user a simple (and concurrent capable) way for handling / parsing / modifying / etc. 
 data, received by MosquittoPublisher.
 
-_**SampleMQTT.cpp**_
+_**SampleMQTT.cpp**_<br/>
 In order to demonstrate the functionalities provided a SampleMQTT program has been provided.
 It implements the following feature:
 * Two publisher are instantiated and ran through separated threads
@@ -33,7 +33,7 @@ As an example of proper queue elements handling a 'while(true)' has been provide
 
 ![Structure](/SampleMQTT.gif)
 
-_**Installation instructions**_
+_**Installation instructions**_<br/>
 This project inherit functionalities from libmosquitto, in order to properly compiling and run this code you must install firstly "libmosquitto-dev"
 
 apt-get install libmosquitto-dev
@@ -50,7 +50,7 @@ and the install as usual
 * cmake ..
 * make
 
-_**Run instructions**_
+_**Run instructions**_<br/>
 For running the program without logging to file: 
 > ./SampleMQTT
 
@@ -59,7 +59,7 @@ Enabling loggin feature:
 
 _The program doesn't exit after execution, so must be terminated using CTRL+C. This is due to the threaded interface of the Subscriber, it will be forevere sitting there waiting for new messages to put on queue._
 
-_**UDACITY Rubric**_
+_**UDACITY Rubric**_<br/>
 * README (All Rubric Points REQUIRED) -> Properly assessed
 * Compiling and Testing (All Rubric Points REQUIRED) -> Properly assessed
 * Loops, Functions, I/O -> SampleMQTT.cpp 
