@@ -30,3 +30,5 @@ It implements the following feature:
 As an example of proper queue elements handling a 'while(true)' has been provided. Withing such loop there are two options:
 * popping elements from the queue and provide video output that demonstrates the dequeueing
 * add file logging if the program has been invoked with "-l filename" option
+
+![Structure](/SampleMQTT.gif)
