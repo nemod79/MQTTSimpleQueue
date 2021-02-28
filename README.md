@@ -1,5 +1,6 @@
 As a Capstone project for my Udacity C++ course ( https://www.udacity.com/course/c-plus-plus-nanodegree--nd213 ) 
 I've implemented classes and methods with the aim of providing an easy to use abstraction to the MOSQUITTO library, for dealing with MQTT protocol.
+No other "project" has been selected, I've decided to realize my own since it comes from a real need.
 
 Hereunder you can see the overall strcture and the general idea of the project.
 
